@@ -16,6 +16,23 @@ pip install -e gym-trivial
 python example.py
 ```
 
+If you want to use this environment to train a policy in 
+[RLlib](https://ray.readthedocs.io/en/latest/rllib.html)
+the first install via:
+
+```
+pip install git+git://github.com/DerwenAI/gym_trivial.git#egg=pkg&subdirectory=gym-trivial
+```
+
+Then after launching [Ray](https://ray.io/) run:
+
+```
+from gym_trivial.envs.trivial_env import Trivial
+from ray.tune.registry import register_env
+
+register_env("trivial-v0", lambda config: Trivial())
+```
+
 
 ## Kudos
 
